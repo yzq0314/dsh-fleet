@@ -1,0 +1,49 @@
+[project]
+name = "dsh-fleet"
+version = "0.2.1"
+description = "An overlay-independent, approval-aware personal agent fleet"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.115,<1",
+    "uvicorn>=0.30,<1",
+    "httpx>=0.27,<1",
+    "aiosqlite>=0.20,<1",
+    "psutil>=6,<8",
+    "pyyaml>=6,<7",
+    "pydantic>=2.8,<3",
+    "httpx-ws>=0.7,<1",
+]
+
+[project.optional-dependencies]
+sandbox = ["wasi-python>=0.1.5,<0.2", "pytest>=8.4,<10"]
+
+[dependency-groups]
+dev = ["pytest>=8,<10", "pytest-asyncio>=0.24,<2", "wasi-python>=0.1.5,<0.2"]
+
+[project.scripts]
+fleet-hub = "fleet_hub.main:main"
+fleet-sidecar = "fleet_node.main:main"
+fleetctl = "fleet_hermes.fleetctl:main"
+
+[build-system]
+requires = ["setuptools>=77,<86"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["packages", "packages.protocol", "fleet_node", "fleet_hub", "fleet_hermes"]
+
+[tool.setuptools.package-dir]
+fleet_node = "apps/node-sidecar/fleet_node"
+fleet_hub = "apps/fleet-hub/fleet_hub"
+fleet_hermes = "integrations/hermes"
+
+[tool.setuptools.package-data]
+fleet_node = ["*.mjs", "*.cs"]
+fleet_hermes = ["SKILL.md"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "apps/fleet-hub", "apps/node-sidecar", "integrations/hermes"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]

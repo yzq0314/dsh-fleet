@@ -1,0 +1,14 @@
+# Copy to local/bootstrap.local.yaml. Use SSH aliases, hostnames or overlay IPs.
+hub:
+  alias: hub
+  os: Linux
+  host: control.example.invalid
+  ssh_user: operator
+nodes:
+  - alias: worker
+    os: Windows
+    host: worker.example.invalid
+    ssh_user: operator
+    tags: [dev]
+    volumes: []
+services: []

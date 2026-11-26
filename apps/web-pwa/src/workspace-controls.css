@@ -1,0 +1,80 @@
+/* The portal's dialog shares the browser top layer with forms opened as modals. */
+dialog.choice-menu {
+  position: fixed; inset: var(--menu-y, 8px) auto auto var(--menu-x, 8px);
+  margin: 0; width: var(--menu-w, 220px); max-width: calc(100vw - 16px);
+  max-height: min(320px, 75dvh); padding: 5px; overflow: auto;
+  color: var(--text); background: var(--panel); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: 0 12px 36px #0004; z-index: 1000;
+}
+dialog.choice-menu::backdrop { background: transparent; backdrop-filter: none; }
+.choice-sheet-head { display: none; }
+.choice-menu .choice-options { display: grid; gap: 2px; }
+.choice-menu .choice-options button { width: 100%; text-align: left; padding-inline: 12px; min-height: 38px; }
+.choice-trigger > span, .artifact-chips > span {
+  min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.choice-trigger svg { flex-shrink: 0; }
+.location .fields-two { display: grid; grid-template-columns: repeat(2,minmax(170px,200px)); }
+.location .field, .location .choice { min-width: 0; }
+.location .choice-trigger { width: 100%; justify-content: space-between; flex-wrap: nowrap; }
+.settings-grid { align-items: start; }
+.account-card .logout { justify-self: start; }
+.plugin-install summary, .skin-background summary { cursor: pointer; color: var(--accent); padding-block: 7px; }
+.plugin-install pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+.skin-right { display: grid; gap: 12px; }
+.skin-right .preview-pane { position: static; }
+.skin-options { grid-template-columns: repeat(3,minmax(0,1fr)); }
+.preview-device { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.preview-chat { display: grid; gap: 6px; }
+.preview-chat p { margin: 0; padding: 5px 10px; background: var(--layer); border: 1px solid var(--line); border-radius: inherit; justify-self: start; }
+.preview-chat p:first-child { justify-self: end; }
+.glass-sliders { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 16px; }
+.skin-background textarea { width: 100%; }
+.artifact-summary, .artifact-row { display: flex; align-items: center; gap: 8px; width: 100%; min-width: 0; }
+.artifact-summary { background: var(--layer); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px 10px; min-height: 44px; text-align: left; }
+.artifact-summary > b, .artifact-summary > svg { flex-shrink: 0; }
+.artifact-chips { display: flex; align-items: center; min-width: 0; gap: 4px; overflow: hidden; }
+.artifact-chips > span { max-width: 12em; font-size: 12px; padding: 1px 6px; color: var(--mute); border: 1px solid var(--line); border-radius: 12px; }
+.disclosure-arrow { margin-left: auto; transition: transform var(--ease, 160ms); }
+.artifact-summary[aria-expanded=true] .disclosure-arrow { transform: rotate(180deg); }
+.artifact-row .artifact-head { flex: 1; min-width: 0; width: auto; padding: 6px 8px; }
+.artifact-head .grow { min-width: 0; }
+.artifact-actions { display: flex; padding-right: 4px; }
+.artifact-actions > * { display: grid; place-items: center; width: 36px; height: 36px; color: var(--accent); border-radius: var(--radius); }
+.artifact-actions > :hover { background: var(--layer); }
+@media (max-width: 767px) {
+  dialog.choice-menu {
+    inset: auto 0 0; width: 100%; max-width: none; max-height: 75dvh;
+    padding: 8px 12px max(env(safe-area-inset-bottom),12px); border-radius: 18px 18px 0 0;
+  }
+  dialog.choice-menu::backdrop { background: #0008; }
+  .choice-sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 0 4px 5px; }
+  .choice-sheet-head button, .choice-menu .choice-options button { min-height: 48px; }
+  .choice-sheet-head button { min-width: 48px; color: var(--accent); }
+  .location .fields-two { width: 100%; grid-template-columns: repeat(2,minmax(0,1fr)); }
+  .location .volume-actions { flex-wrap: wrap; }
+  .artifact-actions > * { width: 44px; height: 44px; }
+  .plugin-install summary, .skin-background summary { min-height: 44px; }
+  .skin-background input[type=range] { min-height: 44px; }
+}
+@media (prefers-reduced-motion: no-preference) and (max-width: 767px) {
+  :root:not([data-motion=false]) dialog.choice-menu[open] { animation: choice-sheet-in .16s ease-out; }
+  @keyframes choice-sheet-in { from { transform: translateY(12px); opacity: 0; } }
+}
+
+@media (min-width: 1100px) {
+  .settings-grid .policy-form {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 14px;
+  }
+  .policy-form > :nth-child(n+3) { grid-column: 1 / -1; }
+  .policy-form textarea { min-height: 74px; height: 86px; }
+  .policy-form > .primary { justify-self: end; }
+  .appearance-editor .mini-window { height: 59px; }
+  .skin-right .preview-pane { gap: 8px; }
+  .account-card .logout { margin-top: 0; }
+}
+@media (pointer: coarse), (prefers-reduced-motion: reduce) {
+  button:not(:disabled):active, a:active { transform: none; }
+}

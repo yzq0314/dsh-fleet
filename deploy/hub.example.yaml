@@ -1,0 +1,11 @@
+bind_mode: ip
+bind_ip: 127.0.0.1
+port: 8765
+allowed_cidrs: [127.0.0.0/8, "::1/128"]
+database: .run/fleet.sqlite
+# Supply FLEET_PASSWORD and FLEET_API_KEY before starting.
+nodes: []
+services: []
+# Per-origin node IDs. Example: {origin: {targets: [worker], volumes: {worker: [shared]}}}
+desktop_clients: {}
+poll_interval: 2

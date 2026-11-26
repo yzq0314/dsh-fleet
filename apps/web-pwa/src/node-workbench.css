@@ -1,0 +1,59 @@
+.node-workbench {
+  display: grid;
+  gap: 16px;
+}
+.node-workbench > p,
+.workbench-history p,
+.workbench-history small {
+  color: var(--mute);
+  font-size: .8rem;
+}
+.workbench-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.workbench-actions > *,
+.device footer button {
+  min-height: 44px;
+}
+.workbench-history h3 {
+  margin: 0 0 8px;
+}
+.workbench-history h3 small {
+  padding-left: 4px;
+  font-variant-numeric: tabular-nums;
+}
+.workbench-history ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.workbench-history li + li {
+  border-top: 1px solid var(--line);
+}
+.workbench-history button {
+  display: flex;
+  width: 100%;
+  min-height: 44px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 0;
+  gap: 8px;
+  text-align: left;
+}
+.workbench-history button > span {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+.workbench-history button b,
+.workbench-history button small {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.workbench-history button > svg {
+  color: var(--accent);
+  flex-shrink: 0;
+}

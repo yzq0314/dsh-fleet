@@ -1,0 +1,10 @@
+{
+  "name": "@dsh-fleet/desktop",
+  "version": "0.2.2",
+  "description": "Opt-in DSH Desktop session synchronization and a local model bridge",
+  "type": "module",
+  "exports": {".": "./index.mjs", "./package.json": "./package.json"},
+  "files": ["index.mjs", "model-service.mjs", "handoff.mjs", "cordis.patch.yml"],
+  "engines": {"dsh": ">=0.2.2-rc.3 <0.3.0"},
+  "dsh": {"bundle": {"patch": "./cordis.patch.yml"}}
+}

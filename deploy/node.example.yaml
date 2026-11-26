@@ -1,0 +1,17 @@
+bind_mode: ip
+bind_ip: 127.0.0.1
+port: 8770
+allowed_cidrs: [127.0.0.0/8, "::1/128"]
+# Use deploy/pair.py to obtain a unique secret.
+secret: ""
+agent: mock
+trusted_workspaces: []
+allow_arbitrary_dirs: false
+approval_timeout: 120
+volumes: []
+volume_roots: []  # Administrator-approved export roots: {path, read_only}.
+policy_mode: balanced  # balanced, strict_hash, autonomous
+checks: []  # strict_hash only: {name, script, sha256}.
+windows_runner: native  # Windows balanced scripts; use isolated for WASI or pinned Linux images.
+sandbox_images: {}  # Optional local Linux image IDs by language. A pin selects Docker for that language.
+# Model routing and installation examples: integrations/dsh-app-plugin/README.md
