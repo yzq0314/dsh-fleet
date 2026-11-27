@@ -4,7 +4,20 @@
 
 Run an AI task on a computer you own, approve its next action from your phone, then open the result in the same workspace on that computer. A Fleet Hub hosts the bilingual web console. Each enrolled machine runs a Sidecar alongside its local agent and exposes only the file volumes you configure.
 
+## Watch a task run
+
+In 26 seconds, follow a task from dispatch on Atlas and one-time approval to a Markdown report and a CSV saved to the Birch NAS volume. Recorded with the local Mock cluster, with Chinese and English captions.
+
+[![Animated preview of task dispatch, approval and results in DSH Fleet](docs/media/fleet-demo.gif)](docs/media/fleet-demo.mp4?raw=1)
+
+[Open the full-size video (MP4)](docs/media/fleet-demo.mp4?raw=1)
+
+<details>
+<summary>Fleet overview screenshot</summary>
+
 ![Three demo nodes and a NAS volume in the Fleet overview](docs/images/fleet-en.png)
+
+</details>
 
 ## Try it on one computer
 

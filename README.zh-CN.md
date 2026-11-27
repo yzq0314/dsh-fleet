@@ -6,7 +6,20 @@
 
 Pocket 同屏沿用现有 Hub 和 Sidecar 端口，服务器告警可送达现有的本人飞书私聊。部署与使用见 [同屏、监控与节点升级](docs/pocket.md)。
 
+## 看一次完整派单
+
+26 秒看完一单任务：派给 Atlas、允许执行一次、打开 Markdown 报告，再把 CSV 转存到 Birch 的 NAS 卷。使用本机 Mock 集群录制，配有中英文字幕。
+
+[![DSH Fleet 动图：从选择设备、派发任务到审批和查看结果](docs/media/fleet-demo.gif)](docs/media/fleet-demo.mp4?raw=1)
+
+[打开高清演示视频（MP4）](docs/media/fleet-demo.mp4?raw=1)
+
+<details>
+<summary>查看设备总览截图</summary>
+
 ![三台虚构演示节点及 NAS 卷的设备总览](docs/images/fleet-zh.png)
+
+</details>
 
 ## 在本机跑通第一个任务
 
